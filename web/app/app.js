@@ -7,17 +7,21 @@ angular.module('myApp', [
   'angular-jwt',
   'ui.bootstrap',
   'myApp.security',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.view3',
-  'myApp.view4',
+  'myApp.viewHome',
+//  'myApp.view2',
+//  'myApp.view3',
+//  'myApp.view4',
+  'myApp.viewDocumentation',
+  'myApp.viewCompanyInfo',
+  'myApp.viewExchangeRateInfo',
+  'myApp.viewAllUsers',
   'myApp.filters',
   'myApp.directives',
   'myApp.factories',
   'myApp.services'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/Home'});
 }])
 //.
         .config(function ($httpProvider) {
