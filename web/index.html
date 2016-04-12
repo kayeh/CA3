@@ -56,9 +56,9 @@
                         <ul class="nav navbar-nav">
                             <li><a href="#/Home">Home</a></li>
                             <li><a href="#/Documentation">Documentation</a></li>
-                            <li><a href="#/CompanyInfo">Company Info</a></li>
-                            <li><a href="#/ExchangeRateInfo">Exchange Rate Info</a></li>
-                            <li><a href="#/AllUsers">All Users</a></li>
+                            <li ng-show="isUser"><a href="#/CompanyInfo">Company Info</a></li>
+                            <li ng-show="isUser"><a href="#/ExchangeRateInfo">Exchange Rate Info</a></li>
+                            <li ng-show="isAdmin"><a href="#/AllUsers">All Users</a></li>
                             <!--              <li><a href="#/view2">Page for Users</a></li>
                                           <li><a href="#/view3">Page for Admins</a></li>
                                           <li><a href="#/view4">Using the Seed</a></li>-->

@@ -54,14 +54,14 @@ public class Create{
         throw new UnsupportedOperationException();
     }
 
-    @GET
-    @Path("/all/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public String getMembers(@PathParam("id") String id) {
-        UserFacade uf = new UserFacade();
-       return gson.toJson(uf.getUserByUserId(id));
-       // throw new UnsupportedOperationException();
-    }
+//    @GET
+//    @Path("/all/{id}")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public String getMembers(@PathParam("id") String id) {
+//        UserFacade uf = new UserFacade();
+//       return gson.toJson(uf.getUserByUserId(id));
+//       // throw new UnsupportedOperationException();
+//    }
 
     /**
      * PUT method for updating or creating an instance of MemberResource
@@ -82,7 +82,7 @@ public class Create{
         JsonObject jo = new JsonParser().parse(user).getAsJsonObject();
         
         User u = new User();
-        u.setUserName(jo.get("username").getAsString());
+        u.setUserName(jo.get("userName").getAsString());
         u.setPassword(PasswordStorage.createHash(jo.get("password").getAsString()));
         
         uf.addUser(u);

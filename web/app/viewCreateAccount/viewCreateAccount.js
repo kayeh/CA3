@@ -18,7 +18,9 @@ angular.module('myApp.viewCreateAccount', ['ngRoute'])
             $http.post("api/create/create", self.user).success(function(){
                 console.log(self.user);
                self.user = {};
-               $location.path("/app/viewHome.html");
+               alert("User created!");
+            }).error(function(){
+                alert("ERROR");
             });
         };
 }]);
