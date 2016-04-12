@@ -10,6 +10,15 @@ angular.module('myApp.viewCreateAccount', ['ngRoute'])
   });
 }])
 
-.controller('ViewCreateAccountCtrl', [function() {
-        
+.controller('ViewCreateAccountCtrl', ["$http", "$location", function($http, $location) {
+        var self = this;
+
+        self.createUser = function(){
+          
+            $http.post("api/create/create", self.user).success(function(){
+                console.log(self.user);
+               self.user = {};
+               $location.path("/app/viewHome.html");
+            });
+        };
 }]);
