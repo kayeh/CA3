@@ -10,13 +10,11 @@ angular.module('myApp.viewCreateAccount', ['ngRoute'])
   });
 }])
 
-.controller('ViewCreateAccountCtrl', ["$http", "$location", function($http, $location) {
+.controller('ViewCreateAccountCtrl', ["$http", function($http) {
         var self = this;
 
         self.createUser = function(){
-          
             $http.post("api/create/create", self.user).success(function(){
-                console.log(self.user);
                self.user = {};
                alert("User created!");
             }).error(function(){
