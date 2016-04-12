@@ -14,6 +14,7 @@ angular.module('myApp', [
   'myApp.viewDocumentation',
   'myApp.viewCompanyInfo',
   'myApp.viewExchangeRateInfo',
+  'myApp.viewCreateAccount',
   'myApp.viewAllUsers',
   'myApp.filters',
   'myApp.directives',
