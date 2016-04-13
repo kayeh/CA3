@@ -1,4 +1,29 @@
 <div>
-  <p>Hej {{ctrl.message}}</p>
-  <h1>{{ctrl.joni}}</h1>
+    <p>Hej {{ctrl.message}}</p>
+    <h1 style="color: pink">{{ctrl.joni}}</h1>
+
+    <form role="form">
+        CVR:<br>
+        <input type="text" name="cvr" ng-model="ctrl.cvr">
+        <button type="submit" class="btn btn-success" ng-click="ctrl.getCompany()">Search</button>
+    </form>
+    <b>Name:</b>                   {{ctrl.company.name}} <br>
+    <b>Established:</b>            {{ctrl.company.startdate}}<br>
+    <b>Employees:</b>              {{ctrl.company.employees}}<br>
+    <b>Industry Description:</b>   {{ctrl.company.industrydesc}}<br>
+    <br>
+    <div style="width: 25em ; border-left: 12em">
+        <ul ng-repeat="unit in ctrl.company.productionunits">
+            <li> <h2> {{unit.name}} </h2></li>
+            <li><b>PNO:</b> {{unit.pno}} </li>
+            <li><b>Address:</b> {{unit.address}} </li>
+            <li><b>Zip:</b> {{unit.zipcode}} </li>
+            <li><b>City:</b> {{unit.city}} </li>
+            <li><b>Phone:</b> {{unit.phone}} </li>
+            <li><b>Email:</b> {{unit.email}} </li>
+            <li><b>Established:</b> {{unit.startadte}} </li>
+            <li><b>Employees:</b> {{unit.empolyees}} </li>
+            <li><b>Email:</b> {{unit.email}} </li>
+        </ul>
+    </div>
 </div> 
