@@ -15,12 +15,12 @@ angular.module('myApp.viewCompanyInfo', ['ngRoute'])
                 self.message = "HELLO FROM THE OTheR SIIIIIIIDE!!";
                 self.joni = "Joni ER Stadig bøsse.";
 
-                self.company = {};
+                
 
                 self.getCompany = function () {
                     return $http({
                         method: 'GET',
-                        url: 'https://cvrapi.dk/api?vat=' + self.cvr + '&country=DK',
+                        url: 'https://cvrapi.dk/api?search=' + self.cvr + '&country=DK',
                         skipAuthorization: true,
                         contentType: "application/json"
                     }).success(function (data) {
