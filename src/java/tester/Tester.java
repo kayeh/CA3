@@ -16,10 +16,11 @@ import security.PasswordStorage;
 public class Tester {
     public static void main(String[] args) throws PasswordStorage.CannotPerformOperationException {
         UserFacade uf = new UserFacade();
-        User user = new User();
-        user.setUserName("Joni2");
-        user.setPassword(PasswordStorage.createHash("test"));
-        
-        uf.addUser(user);
+//        User user = new User();
+//        user.setUserName("Joni2");
+//        user.setPassword(PasswordStorage.createHash("test"));
+//        
+//        uf.addUser(user);
+        uf.getUsers();
     }
 }

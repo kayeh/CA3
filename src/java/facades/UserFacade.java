@@ -72,5 +72,14 @@ public class UserFacade implements IUserFacade {
         }
         return u;
     }
+    
+    public List<User> getUsers() {
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createQuery("SELECT u FROM User u").getResultList();
+        } finally {
+            em.close();
+        }
+    }
 
 }
