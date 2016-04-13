@@ -31,7 +31,8 @@ import javax.annotation.security.RolesAllowed;
  * @author Eske Wolff
  */
 @Path("admin")
-//@RolesAllowed("Admin")
+@RolesAllowed("Admin")
+
 public class AdminResource{
     
     Gson gson;

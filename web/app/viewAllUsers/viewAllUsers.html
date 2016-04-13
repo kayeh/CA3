@@ -1,4 +1,26 @@
 <div>
   <p>Hej {{ctrl.message}}</p>
   <h1 style="color: pink">{{ctrl.joni}}</h1>
+  
+      <form role="form">
+        <button type="submit" class="btn btn-success" ng-click="ctrl.getAllUsers()">Search All Users</button>
+    </form>
+  
+      <div>
+            <div style="width: 25em ; border-left: 12em">
+        <uib-accordion>
+            <uib-accordion-group ng-repeat="user in ctrl.users">
+                <uib-accordion-heading>
+                    {{user.username}}
+                </uib-accordion-heading>
+                <ul class="list-group" ng-repeat="ro in user.roles">
+                    <li class="list-group-item-info"><b>Role: </b> {{ro.role}} </li>
+                </ul>
+            </uib-accordion-group>
+        </uib-accordion>
+    </div>
+    </div>
+  
+  
+  
 </div> 

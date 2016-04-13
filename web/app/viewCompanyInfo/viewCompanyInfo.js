@@ -31,12 +31,3 @@ angular.module('myApp.viewCompanyInfo', ['ngRoute'])
                             });
                 };
             }]);
-
-
-//    $http.get('api/demouser')
-//        .success(function(data) {
-//            self.data = data;
-//    console.log(data);
-//        })
-//        .error(function(data) {
-//        });
