@@ -1,4 +1,69 @@
 <div>
-  <p>Hej {{ctrl.message}}</p>
-  <h1 style="color: pink">{{ctrl.joni}}</h1>
+    <p>Hej {{ctrl.message}}</p>
+    <h1 style="color: pink">{{ctrl.joni}}</h1>
+
+    <form role="form">
+        <button type="submit" class="btn btn-success" ng-click="ctrl.getDailyRates()">Get daily rates</button>
+      
+    </form>
+
+    <div> 
+        <div>
+            <table class="table table-hover">
+                <thead>
+                <th>Amount</th>
+                <th>from</th>
+                <th>to:  (usd, aud, gbp format)</th>
+                <th>Result:</th>
+                
+                </thead>
+
+                <tbody>
+                    <tr>
+                
+                        <td> <input  type="text" name="a" ng-model="ctrl.a" value="amount">  </td>
+                        <td> <input type="text" name="b" ng-model="ctrl.b" value="fromCurrency">  </td>
+                        <td> <input type="text" name="c" ng-model="ctrl.c" value="toCurrency">  </td>
+                        <td><b>{{ctrl.results.result}}</b></td>
+                        <td><button type="submit" class="btn btn-success" ng-click="ctrl.result()" >Get result</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div>
+        <div style="width: 25em ; border-left: 12em">
+            <uib-accordion>
+                <uib-accordion-group ng-repeat="rate in ctrl.rates">
+                    <uib-accordion-heading>
+                        {{rate.date}}
+                    </uib-accordion-heading>
+                    <table class="table table-hover">
+                        <thead  >
+                        <th>Description:</th>
+                        <th>Code:</th>
+                        <th>Rate:</th>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="dr in rate.rates">
+                                <td>{{dr.rate}}</td>
+                                <td><b>{{dr.code}}</b></td>
+                                <td><b>{{dr.description}}</b></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </uib-accordion-group>
+            </uib-accordion>
+
+
+        </div>
+
+
+    </div>
+
+
+
 </div> 

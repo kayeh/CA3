@@ -5,13 +5,9 @@
  */
 package tester;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
-import entity.ExchangeRates;
 import java.text.ParseException;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import security.PasswordStorage;
+import facades.ExchangeRateFacade;
 
 /**
  *
@@ -20,19 +16,7 @@ import security.PasswordStorage;
 public class Tester2 {
 
     public static void main(String[] args) throws PasswordStorage.CannotPerformOperationException, ParseException {
-        // Persistence.generateSchema("PU-ER-LOCAL", null);
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU-ER-LOCAL");
-//        EntityManager em = emf.createEntityManager();
-//        ExchangeRates er = new ExchangeRates();
-//
-//        er.setId(date());
-//        er.setCode("DKK");
-//        er.setRate("9,52");
-//        er.setDescription("Denmark");
-//
-//        em.getTransaction().begin();
-//
-//        em.persist(er);
-//        em.getTransaction().commit();
+    ExchangeRateFacade erf = new ExchangeRateFacade();
+    erf.getResult("100", "AUD", "BGN");
     }
 }

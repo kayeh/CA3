@@ -6,6 +6,8 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,18 +28,22 @@ public class ExchangeRates implements Serializable {
     private String code;
     private String description;
     private String rate;
-    private String todaysDate;
+    private String rateDate;
+    
+    //private List<ExchangeRates> rates = new ArrayList();
 
-    public ExchangeRates(String code, String description, String rate, String todaysDate)  {
+    public ExchangeRates(String code, String description, String rate, String rateDate)  {
         this.code = code;
         this.description = description;
         this.rate = rate;
-        this.todaysDate = todaysDate;
+        this.rateDate = rateDate;
     }
 
     public ExchangeRates() {
     }
 
+     
+  
     public Long getId() {
         return id;
     }
@@ -95,12 +101,12 @@ public class ExchangeRates implements Serializable {
         this.rate = rate;
     }
 
-    public String getTodaysDate() {
-        return todaysDate;
+    public String getRateDate() {
+        return rateDate;
     }
 
-    public void setTodaysDate(String todaysDate) {
-        this.todaysDate = todaysDate;
+    public void setRateDate(String rateDate) {
+        this.rateDate = rateDate;
     }
     
 }
