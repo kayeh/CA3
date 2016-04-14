@@ -25,6 +25,9 @@ import javax.ws.rs.core.MediaType;
 import entity.User;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.PathParam;
+
 /**
  * REST Web Service
  *
@@ -33,8 +36,8 @@ import javax.annotation.security.RolesAllowed;
 @Path("admin")
 @RolesAllowed("Admin")
 
-public class AdminResource{
-    
+public class AdminResource {
+
     Gson gson;
     Gson gsonUser;
 
@@ -73,7 +76,7 @@ public class AdminResource{
         for (User user : users) {
             JsonObject js1 = new JsonObject();
             js1.addProperty("username", user.getUserName());
-            
+
             JsonArray roles = new JsonArray();
             List<Role> r1 = user.getRoles();
             for (Role r : r1) {
@@ -82,11 +85,11 @@ public class AdminResource{
                 roles.add(js2);
             }
             js1.add("roles", roles);
-            
+
             res.add(js1);
         }
         return gson.toJson(res);
-        
+
     }
 
     /**
@@ -98,7 +101,16 @@ public class AdminResource{
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
-    
+
+    @DELETE
+    @Path("/delete/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void removeUser(@PathParam("id") String id) {
+        UserFacade uf = new UserFacade();
+        uf.removeUser(id);
+        
+    }
+
 //    @POST
 //    @Path("/create")
 //    @Consumes(MediaType.APPLICATION_JSON)

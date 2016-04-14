@@ -21,6 +21,8 @@ public class Tester {
 //        user.setPassword(PasswordStorage.createHash("test"));
 //        
 //        uf.addUser(user);
-        uf.getUsers();
+//        uf.getUsers();
+        uf.removeUser("kris");
+        
     }
 }

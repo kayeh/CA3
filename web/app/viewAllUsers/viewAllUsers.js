@@ -27,5 +27,20 @@ angular.module('myApp.viewAllUsers', ['ngRoute'])
 
                     });
                 };
+                
+                self.removeUser = function(username){
+                    return $http({
+                        method: 'DELETE',
+                        url: 'api/admin/delete/'  + username,
+                        contentType: 'application/json'
+                    }).success(function (data){
+                        console.log("Success!");
+                        alert("User Deleted.");
+                        self.getAllUsers();
+                    }).error(function (data){
+                        alert("ERROR");
+                        console.log("ERROR");
+                    });
+                };
 
             }]);
