@@ -40,6 +40,7 @@ public class AdminResource {
 
     Gson gson;
     Gson gsonUser;
+    UserFacade uf = new UserFacade();
 
     @Context
     private UriInfo context;
@@ -69,8 +70,7 @@ public class AdminResource {
     @GET
     @Path("/users")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getMembers() {
-        UserFacade uf = new UserFacade();
+    public String getMembers() {    
         JsonArray res = new JsonArray();
         List<User> users = uf.getUsers();
         for (User user : users) {
@@ -106,23 +106,8 @@ public class AdminResource {
     @Path("/delete/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public void removeUser(@PathParam("id") String id) {
-        UserFacade uf = new UserFacade();
         uf.removeUser(id);
         
     }
 
-//    @POST
-//    @Path("/create")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public void createUser(String user) throws PasswordStorage.CannotPerformOperationException {
-//        UserFacade uf = new UserFacade();
-//        JsonObject jo = new JsonParser().parse(user).getAsJsonObject();
-//        
-//        User u = new User();
-//        u.setUserName(jo.get("userName").getAsString());
-//        u.setPassword(PasswordStorage.createHash(jo.get("password").getAsString()));
-//        
-//        uf.addUser(u);
-//    }
 }

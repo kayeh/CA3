@@ -22,22 +22,21 @@ angular.module('myApp.viewAllUsers', ['ngRoute'])
                         contentType: "application/json"
                     }).success(function (data) {
                         self.users = data;
-                        console.log(data);
                     }).error(function (data) {
 
                     });
                 };
-                
-                self.removeUser = function(username){
+
+                self.removeUser = function (username) {
                     return $http({
                         method: 'DELETE',
-                        url: 'api/admin/delete/'  + username,
+                        url: 'api/admin/delete/' + username,
                         contentType: 'application/json'
-                    }).success(function (data){
+                    }).success(function (data) {
                         console.log("Success!");
                         alert("User Deleted.");
                         self.getAllUsers();
-                    }).error(function (data){
+                    }).error(function (data) {
                         alert("ERROR");
                         console.log("ERROR");
                     });
