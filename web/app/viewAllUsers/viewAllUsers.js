@@ -26,6 +26,7 @@ angular.module('myApp.viewAllUsers', ['ngRoute'])
 
                     });
                 };
+                self.getAllUsers();
 
                 self.removeUser = function (username) {
                     return $http({

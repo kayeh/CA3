@@ -14,11 +14,13 @@ angular.module('myApp.viewCreateAccount', ['ngRoute'])
         var self = this;
 
         self.createUser = function(){
-            $http.post("api/create/create", self.user).success(function(){
+            $http.post("api/create/createUser", self.user).success(function(){
                self.user = {};
                alert("User created!");
+               
             }).error(function(){
                 alert("ERROR");
             });
+            console.log(self.user);
         };
 }]);
