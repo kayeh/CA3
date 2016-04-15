@@ -1,5 +1,6 @@
 package facades;
 
+import XML.XmlReaderDemo;
 import entity.ExchangeRates;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -124,5 +125,6 @@ public class ExchangeRateFacade implements IExchangeRates {
         System.out.println(result2);
         return result2;
     }
+    
 
 }

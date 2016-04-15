@@ -1,6 +1,5 @@
 package XML;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import entity.ExchangeRates;
 import java.io.IOException;
 import org.xml.sax.*;
@@ -10,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class XmlReaderDemo extends DefaultHandler {
+public class XmlReaderDemo extends DefaultHandler implements Runnable {
 
     static ExchangeRates er;
     String currDate;
@@ -43,19 +42,19 @@ public class XmlReaderDemo extends DefaultHandler {
                     //System.out.println(currDate);
                 }
             }
-         ////To here --- Just to find the date
+            ////To here --- Just to find the date
 
             if (attributes.getLocalName(i).equals("code")) {
                 currCode = attributes.getValue(i);
                 //  System.out.println(currCode);
             }
             if (attributes.getLocalName(i).equals("rate")) {
-                if(attributes.getValue(i).equals("-")){
+                if (attributes.getValue(i).equals("-")) {
                     currRate = "0.00";
-                }else{
-                     currRate = attributes.getValue(i);
+                } else {
+                    currRate = attributes.getValue(i);
                 }
-               
+
                 // System.out.println(currRate);
             }
             if (attributes.getLocalName(i).equals("desc")) {
@@ -64,8 +63,8 @@ public class XmlReaderDemo extends DefaultHandler {
             }
         }
         try {
-            if(currCode.length() > 0){
-            er = new ExchangeRates(currCode, currRate, currDesc, currDate);
+            if (currCode.length() > 0) {
+                er = new ExchangeRates(currCode, currRate, currDesc, currDate);
             }
             em.getTransaction().begin();
             em.persist(er);
@@ -77,7 +76,8 @@ public class XmlReaderDemo extends DefaultHandler {
         }
     }
 
-    public static void main(String[] argv) {
+    @Override
+    public void run() {
 
         try {
             XMLReader xr = XMLReaderFactory.createXMLReader();
@@ -87,6 +87,5 @@ public class XmlReaderDemo extends DefaultHandler {
         } catch (SAXException | IOException e) {
             e.printStackTrace();
         }
-
     }
 }

@@ -5,6 +5,7 @@
  */
 package tester;
 
+import XML.XmlReaderDemo;
 import java.text.ParseException;
 import security.PasswordStorage;
 import facades.ExchangeRateFacade;
@@ -17,6 +18,7 @@ public class Tester2 {
 
     public static void main(String[] args) throws PasswordStorage.CannotPerformOperationException, ParseException {
     ExchangeRateFacade erf = new ExchangeRateFacade();
-    erf.getResult("100", "AUD", "BGN");
+    //ef.AddRates(args);
+    
     }
 }

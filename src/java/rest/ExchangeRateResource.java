@@ -30,7 +30,7 @@ import javax.ws.rs.PathParam;
 public class ExchangeRateResource {
 
     Gson gson;
-
+    ExchangeRateFacade erf = new ExchangeRateFacade();
     @Context
     private UriInfo context;
 
@@ -42,7 +42,7 @@ public class ExchangeRateResource {
     @Path("/dailyrates")
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
-        ExchangeRateFacade erf = new ExchangeRateFacade();
+        //ExchangeRateFacade erf = new ExchangeRateFacade();
         //erf.getRates();
 
         JsonArray res = new JsonArray();
@@ -71,13 +71,14 @@ public class ExchangeRateResource {
 
     @Produces(MediaType.APPLICATION_JSON)
     public String CalculateData(@PathParam("amount") String amount, @PathParam("fromcurrency") String fromcurrency, @PathParam("tocurrency") String tocurrency) {
-        ExchangeRateFacade erf = new ExchangeRateFacade();
+
         JsonObject obj1 = new JsonObject();
-        
+
         String calculatedRes;
         calculatedRes = erf.getResult(amount, fromcurrency, tocurrency);
         obj1.addProperty("result", calculatedRes);
         return gson.toJson(obj1);
     }
+
 
 }
