@@ -1,9 +1,9 @@
 <div>
-    <p>Hej {{ctrl.message}}</p>
-    <h1 style="color: pink">{{ctrl.joni}}</h1>
 
+    <h1>Search for firm information:</h1>
+    <br>
     <form role="form">
-        CVR/Name/P-Name/Firma Navn:<br>
+        CVR/Name/P-Name/Firm name:<br>
         <input type="text" name="cvr" ng-model="ctrl.cvr">
         <button type="submit" class="btn btn-success" ng-click="ctrl.getCompany()">Search</button>
     </form>
