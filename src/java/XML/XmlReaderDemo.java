@@ -29,7 +29,7 @@ public class XmlReaderDemo extends DefaultHandler implements Runnable {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU-Local");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU_OPENSHIFT");
         // THE ER in the PU name is for Exchange Rates!
         EntityManager em = emf.createEntityManager();
 

@@ -100,31 +100,33 @@ public class ExchangeRateFacade implements IExchangeRates {
             list = query.getResultList();
 
             for (ExchangeRates e : list) {
-                if(fromCurrency.equalsIgnoreCase("dkk")){
+
+                if (fromCurrency.equalsIgnoreCase("dkk")) {
                     rate1 = 100;
                 }
-                if(toCurrency.equalsIgnoreCase("dkk")){
+                if (toCurrency.equalsIgnoreCase("dkk")) {
                     rate2 = 100;
                 }
-                
+
                 if (e.getCode().equalsIgnoreCase(fromCurrency)) {
                     rate1 = Double.parseDouble(e.getDescription());
                 } else if (e.getCode().equalsIgnoreCase(toCurrency)) {
                     rate2 = Double.parseDouble(e.getDescription());
+                } else if (fromCurrency.equalsIgnoreCase(toCurrency)) {
+                    rate1 = 1;
+                    rate2 = 1;
+
                 }
             }
         } finally {
             em.close();
         }
+
         result = (Integer.parseInt(amount) * (rate1 / rate2));
 
-        
-        
-      
         result2 = Double.toString(result);
         System.out.println(result2);
         return result2;
     }
-    
 
 }

@@ -10,13 +10,12 @@ import javax.servlet.annotation.WebListener;
 
 @WebListener
 public class BackgroundJobManager implements ServletContextListener {
-    //XmlReaderDemo xmlr = new XmlReaderDemo();
     private ScheduledExecutorService scheduler;
 
     @Override
     public void contextInitialized(ServletContextEvent event) {
         scheduler = Executors.newSingleThreadScheduledExecutor();
-        scheduler.scheduleAtFixedRate(new XmlReaderDemo(), 0, 24, TimeUnit.HOURS);
+        scheduler.scheduleAtFixedRate(new XmlReaderDemo(), 0, 1, TimeUnit.DAYS);
     }
 
     @Override
